@@ -1,0 +1,141 @@
+---
+title: "SRT411A0"
+author: "Christopher Pawlaczek"
+output: html_document
+---
+
+GitHub Username: cpawlaczek
+
+  A link to the document we are using: https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+  
+  This is the code and outputs for all 14 ToDos found in "A (very) Short Introduction to R", done for Assignment 0 in SRT411.
+  
+
+####ToDo 1) Computing Difference
+```{r}
+((2019-2013)/22)*100
+```
+
+####Todo 2) Variables
+```{r}
+a = 2019
+b = 2013
+c = 22
+((a-b)/c)*100
+```
+
+####Todo 3) Matrices
+```{r}
+m=c(4,5,8,11)
+sum(m)
+```
+
+####Todo 4) Rnorm
+```{r}
+x = rnorm(100)
+plot(x)
+```
+
+####Todo 5) Sqrt Help
+```{r}
+help(sqrt)
+```
+
+####Todo 6) First Script
+```{r}
+x = rnorm(100)
+plot(x)
+```
+
+####Todo 7) More Matrices
+```{r}
+P = seq(from=31, to=60, by=1)
+Q=matrix(data=c(P),ncol=5)
+Q
+```
+
+####Todo 8) Data Frames
+```{r}
+x1= rnorm(100)
+x2= rnorm(100)
+x3= rnorm(100)
+
+t = data.frame(a = c(x1), b = c(x2+x3), c = c(x1+x2+x3))
+plot(t)
+```
+
+####Todo 9) Graphing
+```{r}
+x1= rnorm(100)
+x2= rnorm(100)
+x3= rnorm(100)
+
+t = data.frame(a = c(x1), b = c(x2+x3), c = c(x1+x2+x3))
+plot(t)
+
+plot(t$a, type="l", ylim=range(t),
+     lwd=3, col=rgb(1,0,0,0.3))
+lines(t$b, type="s", lwd=2,
+      col=rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch=20, cex=4,
+       col=rgb(0,0,1,0.3))
+```
+
+####Todo 10) Reading / Writing
+```{r}
+d = data.frame(a = c(1,2,4,8,16,32), g = c(2,4,8,16,32,64), x = c(3,6,12,24,48,96))
+write.table(d, file="tst1.txt", row.names=FALSE)
+d2 = read.table(file="tst1.txt", header=TRUE)
+d2$g=d2$g*5
+write.table(d2, file="tst2.txt", row.names=FALSE)
+```
+
+####Todo 11) Not Available Data
+```{r}
+vectest = c(rnorm(100))
+mean((sqrt(vectest)))
+##NaNs produced
+```
+
+####Todo 12) Dates
+```{r}
+date1=strptime( c("20190315", "20191205", "20191115"), format="%Y%m%d")
+present1=(c(1,2,3))
+plot(date1, present1)
+```
+
+####Todo 13) For-Loop
+```{r}
+sec13 = seq(from=1, to=100)
+vec13 = c()
+for (i in 1:100)
+{
+  if( i < 5 )
+  {vec13[i] = sec13[i] * 10}
+  else if(i > 90)
+  {vec13[i] = sec13[i] * 10}
+  else 
+  {vec13[i] = sec13[i] * 0.1}
+}
+print(vec13)
+```
+
+####Todo 14) Function Loop
+```{r}
+fun2 = function(arg5)
+{
+  sec13 = seq(from=1, to=arg5)
+  vec13 = c()
+  for (i in 1:arg5)
+  {
+    if( i < 5 )
+    {vec13[i] = sec13[i] * 10}
+    else if(i > 90)
+    {vec13[i] = sec13[i] * 10}
+    else 
+    {vec13[i] = sec13[i] * 0.1}
+  }
+  print(vec13)
+}
+```
+
